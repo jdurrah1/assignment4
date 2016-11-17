@@ -60,12 +60,12 @@ h5{
   <div class = "row searchbar" >
     <div class = "col-lg-12 col-md-12 col-sm-12">
       <h4>Enter the name of the artist and enter : </h4>
-      <input ng-model="searchValue" ng-keypress="($event.which === 13)?searchSpotify():0" type="text">
+      <input ng-model="keyWord" ng-keypress="($event.which === 13)?searchSpotify():0" type="text">
     </div>
   </div>
   <div class = "row">
     <div class = "col-lg-12 col-md-12 col-sm-12">
-      <h4>Search Result (Total 2 found.)</h4>
+      <h4 ng-bind='searchResult'>Search Result (Total 0 found.)</h4>
       <!-- Bonus task 1 goes here-->
       <h4>
         Click to see the detail.
