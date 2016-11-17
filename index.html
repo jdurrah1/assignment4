@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- 493 WARNING
+     note that the following CDN links
+     will work only when you have internet access
+     It incldues
+     jQuery
+     bootstrap
+     and
+     angular.js
+     note that jQuery is added to enable bootstrap.
+     You should NOT use jQuery.
+   -->
+
+<html lang="en-US">
+<head>
+  <title> 493 Artist Search</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="script.js"></script>
+  </title>
+</head>
+<style>
+
+.hot{
+  background-image: url(hot.png);
+  background-size: 18px 20px;
+  background-repeat: no-repeat;
+  padding-left: 20px;
+}
+
+h5{
+  padding-bottom: 5px;
+  padding-top: 3px;
+}
+
+.genre{
+  border:solid 2px;
+  border-radius: 3px;
+  margin:5px;
+  white-space: nowrap;
+  background-color:#ccc;
+  padding:2px;
+}
+
+</style>
+<body ng-app = "493Search">
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+       <h3>493 Artist Search</h3>
+    </div>
+  </div>
+</nav>
+<div class = "container" ng-controller="searchResult">
+  <div class = "row searchbar" >
+    <div class = "col-lg-12 col-md-12 col-sm-12">
+      <h4>Enter the name of the artist and enter : </h4>
+      <input type="text">
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-lg-12 col-md-12 col-sm-12">
+      <h4>Search Result (Total 2 found.)</h4>
+      <!-- Bonus task 1 goes here-->
+      <h4>
+        Click to see the detail.
+      </h4>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-lg-3 col-md-3 col-sm-3" >
+      <div data-toggle="modal" data-target="#myModal"  style="height:250px;overflow:hidden">
+        <h5 class= "hot">
+          Michael Jackson
+        </h5>
+        <div >
+          <img src="https://i.scdn.co/image/30bd799d944e3ce9d10b16cf63a0969d145af97f" style="max-width:100%; max-height:200px">
+        </div>
+      </div>
+      <div id="myModal" class="modal fade" role = "dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss = "modal">&times;</button><!-- close icon-->
+              <h4 id = "selectedArtistName" class="modal-title">Michael Jackson</h4>
+            </div>
+            <div class="modal-body" >
+              <a href ="https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm" class = "btn btn-default"> Open in Spotify</a>
+              <h5> Follower: 2923202</h5>
+              <h5> Genre: dance pop, pop, pop christmas</span></h5>
+              <h5> Popularity: 82</h5>
+              <img src="https://i.scdn.co/image/30bd799d944e3ce9d10b16cf63a0969d145af97f" style="max-width:100%; max-height:400px">
+            </div>
+            <div class="modal-footer" ng-controller= "similarArtistsCtrl">
+              <div>
+                <button type="button" class="btn btn-default">Get Similar Artists</button>
+              </div>
+              <div class = "similar-artists">
+                <!-- your code goes here regarding similar artists ajax call -->
+              </div>
+              <div>
+                <br>
+                <button type="button" class="btn btn-default" data-dismiss = "modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end of myModal-->
+    </div>
+  </div><!-- end of row-->
+</div> <!-- end of container --> 
+</body>
+</html>
