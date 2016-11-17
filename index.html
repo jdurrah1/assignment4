@@ -72,6 +72,8 @@ h5{
       </h4>
     </div>
   </div>
+
+
   <div class = "row">
     <div class = "col-lg-3 col-md-3 col-sm-3" >
       <div data-toggle="modal" data-target="#myModal"  style="height:250px;overflow:hidden">
@@ -111,9 +113,20 @@ h5{
           </div>
         </div>
       </div>
+
       <!-- end of myModal-->
     </div>
   </div><!-- end of row-->
+
+<div class="container-fluid">  
+  <div class="row" ng-repeat="artists in artstsMatrix">
+    <div class="col-xs-3" ng-repeat="artist in artists">
+      <h1>{{artist.name}}</h1>
+    </div>
+  </div>
+</div>  
+
+
 </div> <!-- end of container --> 
 </body>
 </html>
