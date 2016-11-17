@@ -1,22 +1,5 @@
 var app = angular.module('493Search', []);
-/*
-app.filter('listToMatrix', function() {
-  function listToMatrix(list, elementsPerSubArray) {
-    var matrix = [], i, k;
-    for (i = 0, k = -1; i < list.length; i++) {
-      if (i % elementsPerSubArray === 0) {
-        k++;
-        matrix[k] = [];
-      }
-      matrix[k].push(list[i]);
-    }
-    return matrix;
-  }
-  return function(list, elementsPerSubArray) {
-    return listToMatrix(list, elementsPerSubArray);
-  };
-});
-*/
+
 app.controller('searchResult',[ '$scope', '$http', function($scope, $http) {
   // your code goes here
   $scope.artstsMatrix = [];
