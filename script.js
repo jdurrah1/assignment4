@@ -91,9 +91,86 @@ app.controller('searchResult',[ '$scope', '$http', function($scope, $http) {
   	return (Object.keys(artist.genres).map(function(k){return artist.genres[k]}).join(", "));
   };
 
+ $scope.getModalID = function(artist)
+ {
+
+ 	return "#"+artist.id;
+ }
+
 }]);
 
 app.controller('similarArtistsCtrl',['$scope', '$http', function($scope, $http) {
-  // your code goes here 
+  $scope.similarArtstsMatrix =[];
+  $scope.getSimilarArtist = function(artist)
+  {
+
+  	$http.get("https://api.spotify.com/v1/artists/" +artist.id+"/related-artists").then(function(response){
+
+	  		console.log(response.data);
+
+
+  			var similarArtistFound = (response.data)['artists'];
+
+	  		var  matrix = [],i,j; 
+
+	  		for(i =0, j=0; i< similarArtistFound.length; i++)
+	  		{
+	  			if(i%4===0)
+	  			{
+	  				j++;
+	  				matrix[j] =[];
+	  			}
+	  			matrix[j].push(similarArtistFound[i]);
+	  		}
+	  		$scope.similarArtstsMatrix = matrix; 
+	  		console.log(matrix);
+	  		
+
+	 });
+  };
+
+   $scope.getSimilarArtistName = function(artist)
+  {
+  	if(artist.name.length > 15)
+  	{
+  		var name = artist.name; 
+  		name = name.substring(0,11) + "...";
+  		return name; 
+  	}
+
+  	return artist.name; 
+  };
 
 }]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

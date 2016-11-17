@@ -76,7 +76,7 @@ h5{
 
   <div class = "row" ng-repeat="artists in artstsMatrix">
     <div class = "col-lg-3 col-md-3 col-sm-3" ng-repeat="artist in artists">
-      <div data-toggle="modal" data-target="#myModal"  style="height:250px;overflow:hidden">
+      <div data-toggle="modal" data-target="{{getModalID(artist)}}"  style="height:250px;overflow:hidden">
         <h5 class= "{{checkHot(artist)}}">
           {{getArtistName(artist)}}
         </h5>
@@ -84,7 +84,7 @@ h5{
           <img data-ng-src="{{getImageUrl(artist)}}" style="max-width:100%; max-height:200px">
         </div>
       </div>
-      <div id="myModal" class="modal fade" role = "dialog">
+      <div id="{{artist.id}}" class="modal fade" role = "dialog">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -100,11 +100,22 @@ h5{
             </div>
             <div class="modal-footer" ng-controller= "similarArtistsCtrl">
               <div>
-                <button type="button" class="btn btn-default">Get Similar Artists</button>
+                <button type="button" ng-click="getSimilarArtist(artist)" class="btn btn-default">Get Similar Artists</button>
               </div>
               <div class = "similar-artists">
                 <!-- your code goes here regarding similar artists ajax call -->
-              </div>
+                 <div class = "row" ng-repeat = "similarArtists in similarArtstsMatrix" >
+                      <div class = "col-lg-3 col-md-3 col-sm-3" ng-repeat ="similarArtist in similarArtists">
+                        <div  style="height:250px;overflow:hidden">
+                          <h5 >
+                            {{getSimilarArtistName(similarArtist)}}
+                          </h5>
+                          <div >
+                            <img data-ng-src="{{getImageUrl(similarArtist)}}" style="max-width:100%; max-height:200px">
+                          </div>
+                        </div>
+                      </div>                
+                  </div>
               <div>
                 <br>
                 <button type="button" class="btn btn-default" data-dismiss = "modal">Close</button>
