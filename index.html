@@ -72,14 +72,16 @@ h5{
       </h4>
     </div>
   </div>
-  <div class = "row">
-    <div class = "col-lg-3 col-md-3 col-sm-3" >
+
+
+  <div class = "row" ng-repeat="artists in artstsMatrix">
+    <div class = "col-lg-3 col-md-3 col-sm-3" ng-repeat="artist in artists">
       <div data-toggle="modal" data-target="#myModal"  style="height:250px;overflow:hidden">
-        <h5 class= "hot">
-          Michael Jackson
+        <h5 class= "{{checkHot(artist)}}">
+          {{getArtistName(artist)}}
         </h5>
         <div >
-          <img src="https://i.scdn.co/image/30bd799d944e3ce9d10b16cf63a0969d145af97f" style="max-width:100%; max-height:200px">
+          <img data-ng-src="{{getImageUrl(artist)}}" style="max-width:100%; max-height:200px">
         </div>
       </div>
       <div id="myModal" class="modal fade" role = "dialog">
@@ -111,9 +113,13 @@ h5{
           </div>
         </div>
       </div>
+
       <!-- end of myModal-->
     </div>
   </div><!-- end of row-->
+
+
+
 </div> <!-- end of container --> 
 </body>
 </html>
