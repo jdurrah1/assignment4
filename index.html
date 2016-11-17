@@ -74,11 +74,11 @@ h5{
   </div>
 
 
-  <div class = "row">
-    <div class = "col-lg-3 col-md-3 col-sm-3" >
+  <div class = "row" ng-repeat="artists in artstsMatrix">
+    <div class = "col-lg-3 col-md-3 col-sm-3" ng-repeat="artist in artists">
       <div data-toggle="modal" data-target="#myModal"  style="height:250px;overflow:hidden">
         <h5 class= "hot">
-          Michael Jackson
+          {{artist.name}}
         </h5>
         <div >
           <img src="https://i.scdn.co/image/30bd799d944e3ce9d10b16cf63a0969d145af97f" style="max-width:100%; max-height:200px">
@@ -118,13 +118,6 @@ h5{
     </div>
   </div><!-- end of row-->
 
-<div class="container-fluid">  
-  <div class="row" ng-repeat="artists in artstsMatrix">
-    <div class="col-xs-3" ng-repeat="artist in artists">
-      <h1>{{artist.name}}</h1>
-    </div>
-  </div>
-</div>  
 
 
 </div> <!-- end of container --> 
