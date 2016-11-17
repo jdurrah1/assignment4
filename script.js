@@ -78,6 +78,27 @@ app.controller('searchResult',[ '$scope', '$http', function($scope, $http) {
 
   	console.log(imageUrl);
   	return imageUrl;
+  };
+
+  $scope.getArtistName = function(artist)
+  {
+  	if(artist.name.length > 25)
+  	{
+  		var name = artist.name; 
+  		name = name.substring(0,21) + "...";
+  		return name; 
+  	}
+
+  	return artist.name; 
+  }
+
+  $scope.checkHot = function(artist)
+  {
+
+  	if(artist.popularity > 50)
+  		return "hot"; 
+
+  	return ""; 
   }
 
 

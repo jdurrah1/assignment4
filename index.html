@@ -77,8 +77,8 @@ h5{
   <div class = "row" ng-repeat="artists in artstsMatrix">
     <div class = "col-lg-3 col-md-3 col-sm-3" ng-repeat="artist in artists">
       <div data-toggle="modal" data-target="#myModal"  style="height:250px;overflow:hidden">
-        <h5 class= "hot">
-          {{artist.name}}
+        <h5 class= "{{checkHot(artist)}}">
+          {{getArtistName(artist)}}
         </h5>
         <div >
           <img data-ng-src="{{getImageUrl(artist)}}" style="max-width:100%; max-height:200px">
