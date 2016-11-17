@@ -19,7 +19,7 @@ app.filter('listToMatrix', function() {
 */
 app.controller('searchResult',[ '$scope', '$http', function($scope, $http) {
   // your code goes here
-  $scope.artstsMatrix = []
+  $scope.artstsMatrix = [];
   $scope.searchSpotify = function()
   {
 
@@ -59,7 +59,27 @@ app.controller('searchResult',[ '$scope', '$http', function($scope, $http) {
 	  	});
   	
   	
+  };
+
+  $scope.getImageUrl = function(artist)
+  {
+
+  	var imageUrl; // =artist.images[0]; 
+
+  	if(artist.images.length !== 0)
+  	{
+  		imageUrl = artist.images[0].url;
+  	}
+  	else
+  	{
+  		imageUrl = "noimage.jpg";
+  		 
+  	}
+
+  	console.log(imageUrl);
+  	return imageUrl;
   }
+
 
 }]);
 
