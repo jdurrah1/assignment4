@@ -58,8 +58,6 @@ app.controller('searchResult',[ '$scope', '$http', function($scope, $http) {
   		imageUrl = "noimage.jpg";
   		 
   	}
-
-  	console.log(imageUrl);
   	return imageUrl;
   };
 
@@ -73,7 +71,7 @@ app.controller('searchResult',[ '$scope', '$http', function($scope, $http) {
   	}
 
   	return artist.name; 
-  }
+  };
 
   $scope.checkHot = function(artist)
   {
@@ -82,8 +80,16 @@ app.controller('searchResult',[ '$scope', '$http', function($scope, $http) {
   		return "hot"; 
 
   	return ""; 
-  }
+  };
+  $scope.getExternalUrl = function(artist)
+  {
+  	return artist.external_urls.spotify; 
+  };
+  $scope.getGenres = function(artist)
+  {
 
+  	return (Object.keys(artist.genres).map(function(k){return artist.genres[k]}).join(", "));
+  };
 
 }]);
 

@@ -89,14 +89,14 @@ h5{
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss = "modal">&times;</button><!-- close icon-->
-              <h4 id = "selectedArtistName" class="modal-title">Michael Jackson</h4>
+              <h4 id = "{{artist.name}}" class="modal-title">{{artist.name}}</h4>
             </div>
             <div class="modal-body" >
-              <a href ="https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm" class = "btn btn-default"> Open in Spotify</a>
-              <h5> Follower: 2923202</h5>
-              <h5> Genre: dance pop, pop, pop christmas</span></h5>
-              <h5> Popularity: 82</h5>
-              <img src="https://i.scdn.co/image/30bd799d944e3ce9d10b16cf63a0969d145af97f" style="max-width:100%; max-height:400px">
+              <a href ="{{getExternalUrl(artist)}}" class = "btn btn-default"> Open in Spotify</a>
+              <h5> Follower: {{artist.followers.total}}</h5>
+              <h5> Genre: {{getGenres(artist)}}</span></h5>
+              <h5> Popularity: {{artist.popularity}}</h5>
+              <img data-ng-src="{{getImageUrl(artist)}}" style="max-width:100%; max-height:400px">
             </div>
             <div class="modal-footer" ng-controller= "similarArtistsCtrl">
               <div>
